@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Резюме | Digital Дизайнер & Разработчик</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Кнопка переключения темы -->
+<button id="theme-toggle" class="theme-btn" aria-label="Переключить тему">🌙</button>
+
+<div class="resume-container">
+    
+    <!-- Шапка профиля -->
+    <header>
+        <div class="header-main">
+            <h1>потом добавлю имя</h1>
+            <div class="subtitle">Digital Дизайнер & Разработчик</div>
+            <div class="tech-tags">3D / UI-UX / Motion / HTML & CSS</div>
+        </div>
+        <ul class="contacts">
+            <li><span class="icon">Telegram</span> <target="_blank">@Mclaren01</a></li>
+            <li><span class="icon">Email</span> потом добавлю</a></li>  
+        </ul>
+    </header>
+
+    <!-- О себе / Профессиональный профиль -->
+    <section>
+        <h2>О себе</h2>
+        <p>Специализируюсь на стыке визуального дизайна и веб-верстки. Благодаря владению инструментами 2D/3D графики и знанию кода, могу вести проект от идеи и создания визуала до готовой адаптивной страницы. Готов к выполнению тестовых заданий, быстрой интеграции в команду или решению стартовых задач на фрилансе.</p>
+    </section>
+
+    <!-- Что я умею делать (Компетенции) -->
+    <section>
+        <h2>Что я могу реализовать для ваших задач</h2>
+        
+        <div class="capability-item">
+            <div class="capability-header">
+                <h3>Дизайн карточек товаров и инфографика</h3>
+                <span class="tool-badge ps-ai">Photoshop + Illustrator</span>
+            </div>
+            <p>Разработка продающего визуала для маркетплейсов. Построение композиции, работа с типографикой, вынесение ключевых преимуществ товара на первый план, создание иконок и плашек в векторе.</p>
+        </div>
+
+        <div class="capability-item">
+            <div class="capability-header">
+                <h3>3D-моделирование и визуализация</h3>
+                <span class="tool-badge blender">Blender</span>
+            </div>
+            <p>Создание трехмерных моделей объектов и упаковок товаров. Настройка реалистичных материалов, выставление студийного света и рендеринг уникальных ракурсов для баннеров или сайтов.</p>
+        </div>
+
+        <div class="capability-item">
+            <div class="capability-header">
+                <h3>Проектирование и верстка сайтов / меню</h3>
+                <span class="tool-badge web">HTML + CSS</span>
+            </div>
+            <p>Разработка интерфейсов (Landing Page, многостраничные сайты, цифровые меню для кафе). Создание чистой, семантической и адаптивной верстки (Flexbox/Grid), которая правильно отображается на экранах смартфонов и компьютеров.</p>
+        </div>
+
+        <div class="capability-item">
+            <div class="capability-header">
+                <h3>Моушн-дизайн и анимация</h3>
+                <span class="tool-badge ae">After Effects</span>
+            </div>
+            <p>Создание коротких рекламных креативов, анимация интерфейсных элементов, плашек и текста для промо-материалов или соцсетей.</p>
+        </div>
+    </section>
+
+    <!-- Инструменты и Стек -->
+    <section>
+        <h2>Владение инструментами</h2>
+        <div class="skills-wrapper">
+            <div class="skills-group">
+                <h3>Графика & CG</h3>
+                <ul class="skills-list">
+                    <li class="skill-tag cgi">Blender (3D)</li>
+                    <li class="skill-tag adobe">Photoshop</li>
+                    <li class="skill-tag adobe">Illustrator</li>
+                    <li class="skill-tag adobe">After Effects</li>
+                </ul>
+            </div>
+            <div class="skills-group">
+                <h3>Веб-технологии</h3>
+                <ul class="skills-list">
+                    <li class="skill-tag dev">HTML5</li>
+                    <li class="skill-tag dev">CSS</li>
+                    <li class="skill-tag dev">Адаптивность(Media Queries)</li>
+                    <li class="skill-tag dev">Git / GitHub</li>
+                    <li class="skill-tag dev">ИИ(cloud,gemini,NotebookLm и др.)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+     <h2>На данный момент изучаю</h2>
+        <ul class="skills-list">
+     <li class="skill-tag dev">C#</li>
+    <li class="skill-tag dev">Unity</li>
+    <li class="skill-tag dev">figma</li>
+
+    <!-- Дополнительно -->
+    <section>
+        <h2>Дополнительные навыки</h2>
+        <ul class="bullet-list">
+            <li><strong>Английский язык:</strong> Чуть выше базового уровня B1+-. Свободно читаю техническую документацию, смотрю профильные англоязычные туториалы без перевода, готов вести рабочую переписку.</li>
+            <li><strong>Обучаемость:</strong> Умею самостоятельно искать решения сложных технических задач и быстро осваивать новые плагины, библиотеки и программы под требования проекта.</li>
+        </ul>
+    </section>
+
+</div>
+    <!-- Скрипт для работы переключателя -->
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const currentTheme = localStorage.getItem('theme');
+
+        // Проверяем, какая тема была сохранена ранее
+        if (currentTheme === 'light') {
+            document.body.classList.add('light-theme');
+            toggleBtn.textContent = '☀️';
+        }
+
+        // Обработчик клика по кнопке
+        toggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-theme');
+            
+            let theme = 'dark';
+            if (document.body.classList.contains('light-theme')) {
+                theme = 'light';
+                toggleBtn.textContent = '☀️';
+            } else {
+                toggleBtn.textContent = '🌙';
+            }
+            
+            // Запоминаем выбор пользователя, чтобы тема не сбрасывалась при перезагрузке
+            localStorage.setItem('theme', theme);
+        });
+    </script>
+</body>
+
+</body>
+</html>

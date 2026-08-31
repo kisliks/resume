@@ -1,0 +1,293 @@
+/* -------------------------------------------------------------
+   1. ПЕРЕМЕННЫЕ И ЦВЕТОВЫЕ ПАЛИТРЫ (ТЕМНАЯ И СВЕТЛАЯ)
+------------------------------------------------------------- */
+:root {
+    /* По умолчанию: Тёмная тема */
+    --bg-main: #0d0e12;         
+    --bg-card: #161820;         
+    --bg-tag: #222533;          
+    --accent: #a855f7;          
+    --text-main: #ffffff;       
+    --text-muted: #a0aec0;      
+    --border-color: #242838;    
+}
+
+body.light-theme {
+    /* Переключение на светлую тему */
+    --bg-main: #f0f2f5;         
+    --bg-card: #ffffff;         
+    --bg-tag: #e2e8f0;          
+    --accent: #6366f1;          
+    --text-main: #0f172a;       
+    --text-muted: #475569;      
+    --border-color: #e2e8f0;    
+}
+
+/* -------------------------------------------------------------
+   2. ГЛОБАЛЬНЫЕ СТИЛИ С ПЛАВНЫМ ПЕРЕХОДОМ ТЕМ
+------------------------------------------------------------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-muted);
+    line-height: 1.7;
+    padding: 40px 20px;
+    /* Плавная смена фона всей страницы при клике на переключатель */
+    transition: background-color 0.4s ease; 
+}
+
+.resume-container, .capability-item, .skill-tag, h1, h2, h3, p, .contacts a {
+    transition: background-color 0.4s ease, 
+                color 0.4s ease, 
+                border-color 0.4s ease, 
+                box-shadow 0.4s ease;
+}
+
+/* -------------------------------------------------------------
+   3. ГЛАВНЫЙ КОНТЕЙНЕР РЕЗЮМЕ (ФИКСИРУЕМ ШИРИНУ)
+------------------------------------------------------------- */
+.resume-container {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    background: var(--bg-card);
+    padding: 50px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-color);
+}
+
+/* -------------------------------------------------------------
+   4. СТРУКТУРА: ШАПКА, КОНТАКТЫ, СЕКЦИИ
+------------------------------------------------------------- */
+header {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 30px;
+    margin-bottom: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.header-main h1 {
+    font-size: 2.8rem;
+    color: var(--text-main);
+    letter-spacing: -0.5px;
+    font-weight: 700;
+}
+
+.header-main .subtitle {
+    font-size: 1.15rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.tech-tags {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+.contacts {
+    list-style: none;
+    font-size: 0.95rem;
+}
+
+.contacts li {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contacts a {
+    color: var(--text-main);
+    text-decoration: none;
+}
+
+.contacts a:hover {
+    color: var(--accent);
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-size: 1.35rem;
+    color: var(--text-main);
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 6px;
+    letter-spacing: 0.5px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 35px;
+    height: 3px;
+    background-color: var(--accent);
+    border-radius: 2px;
+}
+
+/* -------------------------------------------------------------
+   5. КАРТОЧКИ СПОСОБНОСТЕЙ И ИНСТРУМЕНТЫ
+------------------------------------------------------------- */
+.capability-item {
+    background-color: var(--bg-main);
+    padding: 22px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 16px;
+    /* Изолированная плавная анимация для наведения мыши */
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.3s ease, 
+                box-shadow 0.3s ease;
+}
+
+.capability-item:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 12px 30px rgba(168, 85, 247, 0.15);
+}
+
+body.light-theme .capability-item:hover {
+    box-shadow: 0 12px 30px rgba(99, 102, 241, 0.12);
+}
+
+.capability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.capability-header h3 {
+    font-size: 1.15rem;
+    color: var(--text-main);
+}
+
+.tool-badge {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.tool-badge.ps-ai   { background-color: rgba(56, 189, 248, 0.15); color: #38bdf8; } 
+.tool-badge.blender { background-color: rgba(251, 146, 60, 0.15); color: #fb923c; }  
+.tool-badge.web     { background-color: rgba(52, 211, 153, 0.15); color: #34d399; }  
+.tool-badge.ae     { background-color: rgba(168, 85, 247, 0.15); color: #c084fc; }
+
+.skills-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.skills-group h3 {
+    font-size: 1.05rem;
+    margin-bottom: 15px;
+    color: var(--text-main);
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+}
+
+.skill-tag {
+    background-color: var(--bg-tag);
+    color: var(--text-main);
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    font-weight: 500;
+}
+
+.bullet-list {
+    padding-left: 20px;
+}
+
+.bullet-list li {
+    margin-bottom: 8px;
+}
+
+.bullet-list strong {
+    color: var(--text-main);
+}
+
+/* -------------------------------------------------------------
+   6. КНОПКА ПЕРЕКЛЮЧЕНИЯ ТЕМЫ
+------------------------------------------------------------- */
+.theme-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.theme-btn:hover { transform: scale(1.1); }
+.theme-btn:active { transform: scale(0.95); }
+
+/* -------------------------------------------------------------
+   7. АНИМАЦИЯ ПОЯВЛЕНИЯ ПРИ ЗАГРУЗКЕ СТРАНИЦЫ
+------------------------------------------------------------- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Применяем анимацию только к контейнеру, чтобы дочерние элементы не сжимались */
+.resume-container {
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* -------------------------------------------------------------
+   8. МОБИЛЬНАЯ АДАПТИВНОСТЬ
+------------------------------------------------------------- */
+@media (max-width: 650px) {
+    .resume-container { padding: 25px; }
+    header { flex-direction: column; }
+    .skills-wrapper { grid-template-columns: 1fr; gap: 20px; }
+    .header-main h1 { font-size: 2.2rem; }
+    .capability-header { flex-direction: column; align-items: flex-start; gap: 5px; }
+    .theme-btn { top: auto; bottom: 20px; right: 20px; }
+}
