@@ -193,7 +193,7 @@ body.light-theme .capability-item:hover {
 .tool-badge.ps-ai   { background-color: rgba(56, 189, 248, 0.15); color: #38bdf8; } 
 .tool-badge.blender { background-color: rgba(251, 146, 60, 0.15); color: #fb923c; }  
 .tool-badge.web     { background-color: rgba(52, 211, 153, 0.15); color: #34d399; }  
-.tool-badge.ae     { background-color: rgba(168, 85, 247, 0.15); color: #c084fc; }
+.tool-badge.ae     { background-color: rgba(168, 85, 247, 0.15); color:; }
 
 .skills-wrapper {
     display: grid;
@@ -202,7 +202,7 @@ body.light-theme .capability-item:hover {
 }
 
 .skills-group h3 {
-    font-size: 1.05rem;
+    font-s ize: 1.05rem;
     margin-bottom: 15px;
     color: var(--text-main);
 }
@@ -290,4 +290,43 @@ body.light-theme .capability-item:hover {
     .header-main h1 { font-size: 2.2rem; }
     .capability-header { flex-direction: column; align-items: flex-start; gap: 5px; }
     .theme-btn { top: auto; bottom: 20px; right: 20px; }
+}
+/* Стили для самого блока-контейнера */
+.contacts-box {
+    background-color: #0d0e12; /* Темный фон блока (под цвет темы) */
+    border: 1px solid #3f4448;   /* Тонкая рамка вокруг */
+    border-radius: 8px;          /* Скругление углов */
+    padding: 20px;               /* Внутренние отступы, чтобы текст не прилипал к краям */
+    max-width: 300px;            /* Ограничение блока по ширине */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Легкая тень для объема */
+}
+
+/* Убираем стандартные маркеры (точки) у списка и лишние отступы */
+.contacts {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Делаем небольшой отступ между строками контактов */
+.contacts li {
+    margin-bottom: 10px;
+}
+.contacts li:last-child {
+    margin-bottom: 0; /* У последнего элемента отступ убираем */
+}
+
+/* Цвет для подписей Telegram: и Email: */
+.icon {
+    color: #8b949e;
+    margin-right: 5px;
+}
+
+/* Цвет для самих контактов */
+.highlight {
+    color: #58a6ff; 
+    text-decoration: none;
+}
+.highlight:hover {
+    text-decoration: underline;
 }
