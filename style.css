@@ -119,6 +119,31 @@ header {
 .contacts a:hover {
     color: var(--accent);
 }
+/* -------------------------------------------------------------
+   ДОБАВЛЯЕМ СТИЛИ ДЛЯ БЛОКА КОНТАКТОВ (Вставьте в самый конец)
+------------------------------------------------------------- */
+.contacts-box {
+    /* Автоматически меняет цвет фона: в тёмной теме он будет тёмным, в светлой — светлым */
+    background-color: var(--bg-main) !important; 
+    
+    /* Автоматически меняет цвет рамки вокруг контактов */
+    border: 1px solid var(--border-color) !important;
+    
+    /* Плавный переход цвета при клике на луну/солнце, чтобы блок не моргал */
+    transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+/* Принудительно меняем цвет заголовка "Контакты" внутри этого блока */
+.contacts-box h2 {
+    color: var(--text-main) !important;
+    transition: color 0.4s ease;
+}
+
+/* Принудительно меняем цвет самого текста (Telegram, Email, Github) */
+.contacts-box li {
+    color: var(--text-muted) !important;
+    transition: color 0.4s ease;
+}
 
 section {
     margin-bottom: 40px;
@@ -329,4 +354,237 @@ body.light-theme .capability-item:hover {
 }
 .highlight:hover {
     text-decoration: underline;
+}
+/* =============================================================
+   СТИЛИ ИСКЛЮЧИТЕЛЬНО ДЛЯ СТРАНИЦЫ ПОРТФОЛИО (PAGES/PORTFOLIO)
+============================================================= */
+
+/* 1. Кнопка "Назад к резюме" (фиксированная слева сверху) */
+.back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 10px 16px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-card);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.4s ease;
+}
+
+.back-btn:hover {
+    transform: translateX(-3px);
+    border-color: var(--accent);
+}
+
+/* 2. Открывающиеся вкладки-аккордеоны (<details>) */
+.portfolio-accordion {
+    background-color: var(--bg-main) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+/* Строка заголовка вкладки */
+.portfolio-accordion summary {
+    padding: 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-main);
+    cursor: pointer;
+    list-style: none; /* Скрываем стандартный маркер браузера */
+    position: relative;
+    user-select: none;
+    transition: background-color 0.3s ease;
+}
+
+/* Создаем свою аккуратную стрелочку справа */
+.portfolio-accordion summary::after {
+    content: '▼';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    transition: transform 0.3s ease;
+}
+
+/* Поворачиваем стрелочку при открытии вкладки */
+.portfolio-accordion[open] summary::after { 
+    transform: translateY(-50%) rotate(180deg); 
+}
+
+.portfolio-accordion summary:hover { 
+    background-color: rgba(168, 85, 247, 0.04); 
+}
+
+body.light-theme .portfolio-accordion summary:hover { 
+    background-color: rgba(99, 102, 241, 0.04); 
+}
+
+.portfolio-accordion:hover { 
+    border-color: var(--accent) !important; 
+}
+
+/* 3. Сетка внутри раскрытой вкладки */
+.accordion-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    padding: 25px;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--bg-card) !important;
+}
+
+/* 4. Карточки ваших будущих работ */
+.portfolio-item-card {
+    background-color: var(--bg-main) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 15px;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.3s ease, 
+                box-shadow 0.3s ease;
+}
+
+.portfolio-item-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent) !important;
+    box-shadow: 0 12px 24px rgba(168, 85, 247, 0.12);
+}
+
+body.light-theme .portfolio-item-card:hover { 
+    box-shadow: 0 12px 24px rgba(99, 102, 241, 0.08); 
+}
+
+.portfolio-item-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start; 
+    gap: 15px; 
+}
+
+.portfolio-item-header h3 { 
+    font-size: 1.2rem; 
+    color: var(--text-main) !important; 
+    font-weight: 600; 
+    line-height: 1.3; 
+}
+
+/* Кнопка ссылки внутри карточки проекта */
+.project-link-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-tag);
+    white-space: nowrap;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.project-link-btn:hover {
+    border-color: var(--accent);
+    background-color: var(--accent);
+    color: #ffffff !important;
+}
+
+.project-item-desc { 
+    font-size: 0.95rem; 
+    color: var(--text-muted) !important; 
+    line-height: 1.6; 
+}
+
+/* Теги технологий под описанием проекта */
+.project-item-tags { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 6px; 
+    margin-top: auto; 
+}
+
+.project-item-tags span { 
+    font-size: 0.75rem; 
+    background-color: var(--bg-tag); 
+    color: var(--text-muted) !important; 
+    padding: 4px 10px; 
+    border-radius: 6px; 
+    font-weight: 500; 
+    border: 1px solid var(--border-color); 
+}
+
+/* 5. Адаптивность элементов под разные экраны */
+@media (max-width: 800px) {
+    .back-btn { 
+        position: static; 
+        display: inline-block; 
+        margin-bottom: 20px; 
+    }
+}
+
+@media (max-width: 650px) {
+    .accordion-content { 
+        grid-template-columns: 1fr; 
+        padding: 15px; 
+    }
+    .portfolio-item-header { 
+        flex-direction: column; 
+        align-items: flex-start; 
+        gap: 10px; 
+    }
+    .project-link-btn { 
+        width: 100%; 
+        justify-content: center; 
+    }
+}
+/* -------------------------------------------------------------
+   КОНТЕЙНЕР И СТИЛЬ ДЛЯ КНОПКИ ПОРТФОЛИО НА ГЛАВНОЙ
+------------------------------------------------------------- */
+.portfolio-btn-container {
+    margin-top: 20px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: flex-start; /* Кнопка будет аккуратно прижата к левому краю, как и заголовок */
+}
+
+/* Настройка самой кнопки, чтобы она была графитовой и аккуратной */
+.portfolio-btn-container .contact-link {
+    background-color: var(--bg-main) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-main) !important;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+/* Фиолетовое неоновое свечение появляется ТОЛЬКО при наведении */
+.portfolio-btn-container .contact-link:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent) !important;
+    box-shadow: 0 6px 16px rgba(168, 85, 247, 0.2) !important;
+}
+
+/* Мягкая подсветка для светлой темы при наведении */
+body.light-theme .portfolio-btn-container .contact-link:hover {
+    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.15) !important;
 }
