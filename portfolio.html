@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио | Осипович Степан</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Кнопка переключения темы (фиксированная в углу экрана) -->
+    <button id="theme-toggle" class="theme-btn" aria-label="Переключить тему">🌙</button>
+
+    <!-- Ссылка для возврата на главное резюме -->
+    <a href="index.html" class="back-btn">← Назад к резюме</a>
+
+    <!-- Главный контейнер портфолио -->
+    <div class="resume-container">
+        
+        <!-- Шапка портфолио -->
+        <header class="portfolio-header">
+            <div class="header-main">
+                <h1>Мои работы</h1>
+                <div class="subtitle">Примеры моих работ</div>
+            </div>
+        </header>
+
+        <!-- ОТКРЫВАЮЩАЯСЯ ВКЛАДКА 1: С ИНТЕРЕСНЫМ ФУНКЦИОНАЛОМ -->
+        <details class="portfolio-accordion">
+            <summary>Сайты</summary>
+            <div class="accordion-content">
+                
+                <!-- КАРТОЧКА РАБОТЫ 1 (Пустой шаблон для заполнения) -->
+                <div class="portfolio-item-card">
+                    <div class="portfolio-item-header">
+                        <h3>Название проекта</h3>
+                        <!-- Вместо # вставьте вашу реальную ссылку -->
+                        <a href="#" target="_blank" class="project-link-btn">Открыть проект →</a>
+                    </div>
+                    <p class="project-item-desc">Описание</p>
+                    <div class="project-item-tags">
+
+                    </div>
+                </div>
+
+                <!-- КАРТОЧКА РАБОТЫ 2 (Пустой шаблон для заполнения) -->
+                <div class="portfolio-item-card">
+                    <div class="portfolio-item-header">
+                        <h3>Название проекта</h3>
+                        <a href="#" target="_blank" class="project-link-btn">Открыть проект →</a>
+                    </div>
+                    <p class="project-item-desc">Описание</p>
+                    <div class="project-item-tags">
+                    </div>
+                </div>
+
+            </div>
+        </details>
+
+        <!-- ОТКРЫВАЮЩАЯСЯ ВКЛАДКА 2: ОБЫЧНЫЕ (ВЕРСТКА И ГРАФИКА) -->
+        <details class="portfolio-accordion">
+            <summary>.NET</summary>
+            <div class="accordion-content">
+                
+                <!-- КАРТОЧКА РАБОТЫ 3 (Пустой шаблон для заполнения) -->
+                <div class="portfolio-item-card">
+                    <div class="portfolio-item-header">
+                        <h3>Название проекта</h3>
+                        <a href="#" target="_blank" class="project-link-btn">Открыть проект →</a>
+                    </div>
+                    <p class="project-item-desc">Описание</p>
+                    <div class="project-item-tags">
+                    </div>
+                </div>
+
+                <!-- КАРТОЧКА РАБОТЫ 4 (Пустой шаблон для заполнения) -->
+                <div class="portfolio-item-card">
+                    <div class="portfolio-item-header">
+                        <h3>Название проекта </h3>
+                        <a href="#" target="_blank" class="project-link-btn">Открыть проект →</a>
+                    </div>
+                    <p class="project-item-desc">Описание</p>
+                    <div class="project-item-tags">
+                    </div>
+                </div>
+
+            </div>
+        </details>
+                <details class="portfolio-accordion">
+            <summary>Модели</summary>
+            <div class="accordion-content">
+                                <div class="portfolio-item-card">
+                    <div class="portfolio-item-header">
+                        <h3>Название модели </h3>
+                        <a href="#" target="_blank" class="project-link-btn">Открыть модель →</a>
+                    </div>
+                    <p class="project-item-desc">Описание</p>
+                    <div class="project-item-tags">
+                    </div>
+                </div>
+                            <div class="portfolio-item-card">
+                    <div class="portfolio-item-header">
+                        <h3>Название модели </h3>
+                        <a href="#" target="_blank" class="project-link-btn">Открыть модель →</a>
+                    </div>
+                    <p class="project-item-desc">Описание</p>
+                    <div class="project-item-tags">
+                    </div>
+                </div>
+
+            </div>
+        </details>
+
+    </div> <!-- Конец контейнера -->
+
+    <!-- Скрипт переключателя темы (синхронизирован со всеми страницами) -->
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const currentTheme = localStorage.getItem('theme');
+
+        if (currentTheme === 'light') {
+            document.body.classList.add('light-theme');
+            toggleBtn.textContent = '☀️';
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-theme');
+            let theme = 'dark';
+            if (document.body.classList.contains('light-theme')) {
+                theme = 'light';
+                toggleBtn.textContent = '☀️';
+            } else {
+                theme = '🌙';
+            }
+            localStorage.setItem('theme', theme);
+        });
+    </script>
+</body>
+</html>
